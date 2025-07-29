@@ -32,7 +32,7 @@
                                     <i class="far fa-heart"></i>
                                 </button>
                                 <span
-                                    class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">15%
+                                    class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">15%
                                     OFF</span>
                                 <button
                                     class="image-zoom absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md hidden md:block">
@@ -89,42 +89,46 @@
                                 <span class="ml-2 text-lg text-gray-500 line-through">
                                     NRs. {{ $product->price }}
                                 </span>
-                                <span class="ml-2 bg-red-100 text-red-800 text-sm font-medium px-2 py-0.5 rounded">Save
+                                <span class="ml-2 bg-red-100 text-blue-800 text-sm font-medium px-2 py-0.5 rounded">Save
                                     {{ $product->discount_percentage }}%</span>
                             </div>
-                            <p class="text-sm text-gray-500 mt-1">$6.99 Shipping or FREE shipping on orders over $50</p>
                         </div>
 
-
-                        <!-- Quantity -->
-                        <div class="mb-6">
-                            <h3 class="text-sm font-medium text-gray-900 mb-2">Quantity</h3>
-                            <div class="flex items-center">
-                                <button
-                                    class="w-10 h-10 border border-gray-300 rounded-l-md flex items-center justify-center hover:bg-gray-100">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <input type="number" value="1" min="1"
-                                    class="w-16 h-10 border-t border-b border-gray-300 text-center">
-                                <button
-                                    class="w-10 h-10 border border-gray-300 rounded-r-md flex items-center justify-center hover:bg-gray-100">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                                <span class="ml-4 text-sm text-gray-500">Only 12 left</span>
+                        <form action="{{ route('add_to_cart') }}" method="post">
+                            @csrf
+                            <!-- Quantity -->
+                            <div class="mb-6">
+                                <h3 class="text-sm font-medium text-gray-900 mb-2">Quantity</h3>
+                                <div class="flex items-center">
+                                    <button type="button" onclick="decrementQty()"
+                                        class="w-10 h-10 border border-gray-300 rounded-l-md flex items-center justify-center hover:bg-gray-100">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="hidden" name="amount"
+                                        value="{{ $product->discount_percentage > 0 ? $product->price - $product->price * ($product->discount_percentage / 100) : $product->price }}">
+                                    <input type="text" name="product_id" value="{{ $product->id }}" hidden>
+                                    <input type="number" name="qty" id="qty" value="1" min="1"
+                                        max="10" class="w-16 h-10 border-t border-b border-gray-300 text-center">
+                                    <button type="button" onclick="incrementQty()"
+                                        class="w-10 h-10 border border-gray-300 rounded-r-md flex items-center justify-center hover:bg-gray-100">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <span class="ml-4 text-sm text-gray-500">Only 12 left</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Action Buttons -->
-                        <div class="flex flex-col space-y-3 mb-6">
-                            <button
-                                class="bg-[var(--color-primary)] text-white py-3 px-6 rounded-md font-medium flex items-center justify-center">
-                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
-                            </button>
-                            <button
-                                class="border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-blue-50 py-3 px-6 rounded-md font-medium">
-                                Buy Now
-                            </button>
-                        </div>
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col space-y-3 mb-6">
+                                <button type="submit"
+                                    class="bg-[var(--color-primary)] text-white py-3 px-6 rounded-md font-medium flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                                </button>
+                                <button
+                                    class="border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-blue-50 py-3 px-6 rounded-md font-medium">
+                                    Buy Now
+                                </button>
+                            </div>
+                        </form>
 
                         <!-- Delivery Options -->
                         <div class="border-t border-gray-200 pt-4">
@@ -320,6 +324,20 @@
     </section>
 
     <script>
+        function incrementQty() {
+            let qty = parseInt(document.getElementById('qty').value);
+            qty++;
+            document.getElementById('qty').value = qty;
+        }
+
+        function decrementQty() {
+            let qty = parseInt(document.getElementById('qty').value);
+            if (qty > 1) {
+                qty--;
+                document.getElementById('qty').value = qty;
+            }
+        }
+
         // Image gallery functionality
         document.querySelectorAll('.thumbnail-btn').forEach(btn => {
             btn.addEventListener('click', function() {

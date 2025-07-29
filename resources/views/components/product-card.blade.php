@@ -6,7 +6,7 @@
         <img src="{{ asset(Storage::url($product->images[0])) }}" alt="Product Image" class="w-full h-full object-cover">
         <!-- Discount Badge -->
         <span
-            class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">{{ $product->discount_percentage }}%
+            class="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">{{ $product->discount_percentage }}%
             OFF</span>
     </div>
 

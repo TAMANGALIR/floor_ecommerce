@@ -56,7 +56,20 @@ class ShopResource extends Resource
                         'meat_shop' => 'Meat Shop',
                         'grocery_store' => 'Grocery Store',
                         'kirana_pasal' => 'Kirana Pasal',
-                        'khaja_dokan' => 'Khaja Dokan'
+                        'khaja_dokan' => 'Khaja Dokan',
+                         'meat_shop'=>'Meat Shop',
+                                    'kirana_pasal'=>'Mini-Mart',
+                                    'khaja_dokan'=>'Khaja Pasal',
+                                    'Anime Store'=>'Anime Store',
+                                    'Cloth Store'=>'Cloth Store',
+                                    'Shoes Store'> 'Shoes Store',
+                                    'Utensils Store'=>'Utensils Store',
+                                    'Stationary Store'=>'Stationary Store',
+                                    'Medical Store'=>'Medical Store',
+                                    'Printing Store'=>'Printing Store',
+                                    'Electric  Store'=>'Electric  Store',
+                                    'Jewellery  Shop'=>'Jewellery  Shop'
+
                     ]),
                 Forms\Components\FileUpload::make('profile_image')
                     ->image(),
