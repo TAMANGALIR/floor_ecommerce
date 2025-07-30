@@ -64,5 +64,8 @@ class PageController extends BaseController
     {
         $product = Product::find($id);
         return view('frontend.product', compact('product'));
+
     }
+  
+
 }
