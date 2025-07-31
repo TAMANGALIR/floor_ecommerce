@@ -37,7 +37,7 @@ class PageController extends BaseController
         $shop->contact_number = $request->contact_number;
         $shop->shop_type = $request->shop_type;
         $shop->save();
-        Mail::to("tamangalir@gmail.com")->send(new ShopRequestNotification($shop));
+        Mail::to("sudamshrestha939@gmail.com")->send(new ShopRequestNotification($shop));
         return redirect()->back();
     }
 
@@ -64,8 +64,5 @@ class PageController extends BaseController
     {
         $product = Product::find($id);
         return view('frontend.product', compact('product'));
-
     }
-  
-
 }

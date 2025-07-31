@@ -66,14 +66,14 @@
                                     <div class="mt-2 flex items-center">
                                         @if ($product->discount_percentage > 0)
                                             <span
-                                                class="text-blue-500 font-medium">${{ number_format($price, 2) }}</span>
+                                                class="text-red-500 font-medium">NRs{{ number_format($price, 2) }}</span>
                                             <span
-                                                class="ml-2 text-gray-500 line-through text-sm">${{ number_format($product->price, 2) }}</span>
+                                                class="ml-2 text-gray-500 line-through text-sm">Nrs{{ number_format($product->price, 2) }}</span>
                                             <span
-                                                class="ml-2 bg-red-100 text-blue-800 text-xs px-2 py-0.5 rounded">{{ $product->discount_percentage }}%
+                                                class="ml-2 bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded">{{ $product->discount_percentage }}%
                                                 OFF</span>
                                         @else
-                                            <span class="font-medium">${{ number_format($product->price, 2) }}</span>
+                                            <span class="font-medium">NRs{{ number_format($product->price, 2) }}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -101,12 +101,12 @@
                                     </div>
 
                                     <div class="text-right">
-                                        <p class="font-bold">${{ number_format($itemTotal, 2) }}</p>
+                                        <p class="font-bold">NRs{{ number_format($itemTotal, 2) }}</p>
                                         <form action="{{ route('cart.destroy', $cart->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-blue-500 hover:text-blue-700 text-sm mt-1">
+                                            <button type="submit" class="text-red-500 hover:text-red-700 text-sm mt-1">
                                                 <i class="fas fa-trash mr-1"></i> Remove
                                             </button>
                                         </form>
@@ -120,14 +120,12 @@
                     <div class="border-t border-gray-200 p-4 bg-gray-50 flex justify-between items-center">
                         <div class="text-right">
                             <p class="text-gray-600">Subtotal for {{ $shop->shop_name }}:</p>
-                            <p class="text-xl font-bold">${{ number_format($shopTotal, 2) }}</p>
+                            <p class="text-xl font-bold">NRs{{ number_format($shopTotal, 2) }}</p>
                         </div>
-                        <form action="{{ route('checkout', $shop->id) }}" method="GET">
-                            <button type="submit"
-                                class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                                Checkout Now
-                            </button>
-                        </form>
+                        <a href="{{ route('checkout', $shop->id) }}"
+                            class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                            Checkout Now
+                        </a>
                     </div>
                 </div>
             @endforeach

@@ -1,4 +1,6 @@
 <x-frontend-layout>
+
+
     <!-- Product Detail Section -->
     <section class="py-6">
         <div class="container mx-auto px-4">
@@ -30,7 +32,7 @@
                                     <i class="far fa-heart"></i>
                                 </button>
                                 <span
-                                    class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">15%
+                                    class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">15%
                                     OFF</span>
                                 <button
                                     class="image-zoom absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md hidden md:block">
@@ -87,7 +89,7 @@
                                 <span class="ml-2 text-lg text-gray-500 line-through">
                                     NRs. {{ $product->price }}
                                 </span>
-                                <span class="ml-2 bg-red-100 text-blue-800 text-sm font-medium px-2 py-0.5 rounded">Save
+                                <span class="ml-2 bg-red-100 text-red-800 text-sm font-medium px-2 py-0.5 rounded">Save
                                     {{ $product->discount_percentage }}%</span>
                             </div>
                         </div>
@@ -167,7 +169,33 @@
 
                     <!-- Tab Content -->
                     <div class="p-6">
+                        <div class="tab-content active">
+                            <h3 class="text-lg font-bold mb-4">Product Description</h3>
+                            <div class="prose max-w-none">
+                                <p>Experience premium sound quality with our Wireless Bluetooth Headphones. Designed for
+                                    audiophiles and casual listeners alike, these headphones deliver crystal-clear audio
+                                    with deep bass and crisp highs.</p>
 
+                                <h4 class="font-bold mt-4">Key Features:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Active Noise Cancellation (ANC) technology</li>
+                                    <li>40mm dynamic drivers for powerful sound</li>
+                                    <li>30-hour battery life with quick charge (5 min charge = 2 hours playback)</li>
+                                    <li>Bluetooth 5.0 with 30ft range</li>
+                                    <li>Built-in microphone for hands-free calls</li>
+                                    <li>Soft memory-protein ear cushions for all-day comfort</li>
+                                    <li>Foldable design with carrying case included</li>
+                                </ul>
+
+                                <h4 class="font-bold mt-4">What's in the Box:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Wireless Headphones</li>
+                                    <li>Carrying Case</li>
+                                    <li>USB-C Charging Cable</li>
+                                    <li>3.5mm Audio Cable</li>
+                                    <li>Quick Start Guide</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="tab-content hidden">
@@ -189,7 +217,107 @@
             <div class="mt-12">
                 <h2 class="text-2xl font-bold mb-6">You May Also Like</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Related Product 1 -->
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://via.placeholder.com/300x300?text=Related+1" alt="Related product"
+                                class="w-full h-48 object-cover">
+                            <button
+                                class="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-[var(--color-primary)] hover:text-white">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1 truncate">Wireless Earbuds Pro</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-lg font-bold">$59.99</span>
+                                    <span class="text-sm text-gray-500 line-through ml-1">$79.99</span>
+                                </div>
+                                <button
+                                    class="bg-[var(--color-primary)] text-white p-2 rounded-full hover:bg-blue-700">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Related Product 2 -->
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://via.placeholder.com/300x300?text=Related+2" alt="Related product"
+                                class="w-full h-48 object-cover">
+                            <button
+                                class="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-[var(--color-primary)] hover:text-white">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1 truncate">Bluetooth Speaker</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-lg font-bold">$39.99</span>
+                                </div>
+                                <button
+                                    class="bg-[var(--color-primary)] text-white p-2 rounded-full hover:bg-blue-700">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Product 3 -->
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://via.placeholder.com/300x300?text=Related+3" alt="Related product"
+                                class="w-full h-48 object-cover">
+                            <button
+                                class="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-[var(--color-primary)] hover:text-white">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1 truncate">Noise Cancelling Headphones</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-lg font-bold">$129.99</span>
+                                </div>
+                                <button
+                                    class="bg-[var(--color-primary)] text-white p-2 rounded-full hover:bg-blue-700">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Product 4 -->
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://via.placeholder.com/300x300?text=Related+4" alt="Related product"
+                                class="w-full h-48 object-cover">
+                            <button
+                                class="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-[var(--color-primary)] hover:text-white">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1 truncate">Gaming Headset</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-lg font-bold">$89.99</span>
+                                    <span class="text-sm text-gray-500 line-through ml-1">$109.99</span>
+                                </div>
+                                <button
+                                    class="bg-[var(--color-primary)] text-white p-2 rounded-full hover:bg-blue-700">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

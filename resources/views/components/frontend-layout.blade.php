@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sajilo Bazar</title>
-
+    <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
 </head>
 
 <body>
-    <!-- Changed bg to blue -->
-    <header class="bg-blue-700 text-white sticky top-0 py-2 z-50">
+    <header class="bg-[var(--color-primary)] text-white sticky top-0 py-2 z-50">
         <x-frontend-navbar />
     </header>
 
-    <main>
+    <main class="min-h-[60vh]">
         {{ $slot }}
     </main>
 
